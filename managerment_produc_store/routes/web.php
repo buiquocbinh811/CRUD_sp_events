@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PetController;
 
 // Routes for Thuoc
-Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::get('/', [PetController::class, 'index'])->name('pets.index');
 
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/pets/create', [PetController::class, 'create'])->name('pets.create');
 
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/pets/{id}', [PetController::class, 'show'])->name('pets.show');
 
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('/pets/{pet}/edit', [PetController::class, 'edit'])->name('pets.edit');
 
-Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::put('/pets/{pet}', [PetController::class, 'update'])->name('pets.update');
 
-Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');

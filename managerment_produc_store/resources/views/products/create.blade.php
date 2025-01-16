@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Sản Phẩm</title>
+    <title>Thêm Thú Cưng</title>
     <link rel="stylesheet" href="/all.min.css">
     <link rel="stylesheet" href="/bootstrap.min.css">
     <script src="/bootstrap.bundle.min.js"></script>
@@ -11,56 +11,53 @@
 
 <body>
     <div class="container">
-        <h1 class="mt-5">Thêm Sản Phẩm Mới</h1>
-        <form action="{{ route('products.store') }}" method="POST" class="mt-4">
+        <h1 class="mt-5">Thêm Thú Cưng Mới</h1>
+        <form action="{{ route('pets.owner') }}" method="POST" class="mt-4" ">
             @csrf
 
             <x-form-input
-                type="text"
-                name="product_name"
-                label="Tên Sản Phẩm"
-                required="true" />
+                type=" text"
+            name="pet_name"
+            label="Tên Thú Cưng"
+            required="true" />
 
-            <x-form-input
-                type="textarea"
-                name="product_description"
-                label="Mô Tả" />
+        <x-form-input
+            type="text"
+            name="pet_species"
+            label="Loài" />
 
-            <x-form-input
-                type="number"
-                name="product_price"
-                label="Giá"
-                required="true" />
-            <!-- / -->
+        <x-form-input
+            type="text"
+            name="pet_breed"
+            label="Giống" />
 
-            <div class="mb-3">
-                <label for="store_id" class="form-label">Cửa Hàng</label>
-                <input type="text"
-                    class="form-control @error('store_id') is-invalid @enderror"
-                    list="storeList"
-                    name="store_id"
-                    required>
-                <datalist id="storeList">
-                    @foreach($stores as $store)
-                    <option value="{{ $store->store_name }}">
-                        @endforeach
-                </datalist>
-                @error('store_id')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
+        <x-form-input
+            type="number"
+            name="pet_age"
+            label="Tuổi"
+            required="true" />
 
+        <div class="mb-3">
+            <label for="owner_id" class="form-label">Chủ thú cưng</label>
+            <input type="text"
+                class="form-control @error('owner_id') is-invalid @enderror"
+                list="ownerList"
+                name="owner_id"
+                required>
+            <datalist id="ownerList">
+                @foreach($owners as $owner)
+                <option value="{{ $owner->owner_name }}">
+                    @endforeach
+            </datalist>
+            @error('owner_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
-            <!--  -->
-            <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
-            <a href="{{ route('products.index') }}" class="btn btn-secondary">Hủy</a>
+        <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+        <a href="{{ route('pets.index') }}" class="btn btn-secondary">Hủy</a>
         </form>
     </div>
 </body>
 
 </html>
-<!-- <x-form-input
-            type="text" 
-            name="store_id"
-            label="Cửa Hàng"
-            required="true"/> -->

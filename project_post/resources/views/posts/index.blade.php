@@ -20,15 +20,14 @@
             </div>
         </div>
     </nav>
-
     <!-- Posts List -->
     <div class="container mt-5">
         <h2 class="mb-4">List Posts</h2>
         <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+            <thead style="background-color: cyan !important">
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
+                    <th >Title</th>
                     <th>Content</th>
                     <th>Actions</th>
                 </tr>
@@ -40,7 +39,7 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->content }}</td>
                         <td>
-                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a style="width: 60px" href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('posts.destroy', $post->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
